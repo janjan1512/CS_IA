@@ -10,7 +10,7 @@ function generateOTP(): string {
 }
 
 function sendOTP(string $email, string $otp): bool {
-    // prefer $_ENV loaded by config.php, fallback to getenv()
+
     $smtpUser = $_ENV['SMTP_USER'] ?? getenv('SMTP_USER') ?? '';
     $smtpPass = $_ENV['SMTP_PASS'] ?? getenv('SMTP_PASS') ?? '';
     $smtpHost = $_ENV['SMTP_HOST'] ?? getenv('SMTP_HOST') ?? 'smtp.gmail.com';
@@ -66,7 +66,7 @@ function sendOTP(string $email, string $otp): bool {
 function storeOTP(int $user_id, string $email, string $otp): bool {
     $conn = getDBConnection();
 
-    // delete previous OTPs for the user
+
     $delete_sql = "DELETE FROM otp_codes WHERE user_id = ?";
     $delete_stmt = $conn->prepare($delete_sql);
     if (! $delete_stmt) {
@@ -77,7 +77,7 @@ function storeOTP(int $user_id, string $email, string $otp): bool {
     $delete_stmt->execute();
     $delete_stmt->close();
 
-    $expires_at = date('Y-m-d H:i:s', time() + 600); // 10 minutes
+    $expires_at = date('Y-m-d H:i:s', time() + 600); 
     $insert_sql = "INSERT INTO otp_codes (user_id, email, otp_code, expires_at, is_used) VALUES (?, ?, ?, ?, FALSE)";
     $insert_stmt = $conn->prepare($insert_sql);
     if (! $insert_stmt) {

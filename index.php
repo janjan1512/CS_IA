@@ -26,7 +26,7 @@ require_once __DIR__ . '/navbar.php';
     <div class="main" id="main">
         <h2>Hello 
             <?php
-                // Safely get the user name from session
+ 
                 $user_name = isset($_SESSION['user_name']) ? $_SESSION['user_name'] : 'Guest';
                 echo htmlspecialchars($user_name);
             ?>

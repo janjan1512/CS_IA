@@ -1,7 +1,7 @@
 <?php
-// filepath: /Users/janicevivien.l/Desktop/CS_IA/config.php
 
-// Simple .env loader (no Composer needed)
+
+
 if (file_exists(__DIR__ . '/.env')) {
     $lines = file(__DIR__ . '/.env', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
     foreach ($lines as $line) {

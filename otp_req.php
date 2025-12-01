@@ -60,7 +60,7 @@ $sent = sendOTP($email, $otp);
 if ($sent) {
     $_SESSION['message'] = "A reset code has been sent to " . htmlspecialchars($email) . ".";
 } else {
-    // dev fallback (remove in production)
+
     $_SESSION['message'] = "Unable to send email; for testing your OTP is: " . htmlspecialchars($otp);
 }
 

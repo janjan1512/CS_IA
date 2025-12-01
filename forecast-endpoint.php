@@ -2,7 +2,7 @@
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 
-// converts JSON into PHP array to be sent into the frontend to be displayed
+
 try {
     $weeksAhead = isset($_GET['weeks']) ? max(1, min(8, (int) $_GET['weeks'])) : 8;
     $history    = isset($_GET['history']) ? max(4, min(30, (int) $_GET['history'])) : 16;

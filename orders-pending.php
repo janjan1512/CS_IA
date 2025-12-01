@@ -71,7 +71,7 @@ require_once __DIR__ . '/navbar.php';
             }
 
 
-            $sql = "SELECT id, customer_id, order_date FROM orders WHERE status = 'pending' $orderBy"; // change this to your DB name
+            $sql = "SELECT id, customer_id, order_date FROM orders WHERE status = 'pending' $orderBy"; 
             
             $result = $conn->query($sql);
 

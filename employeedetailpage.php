@@ -32,15 +32,14 @@ require_once __DIR__ . '/validate.php';
                 
 
                     <?php
-                        // getting id from url
+                
                         $idRaw = sanitize_input($_GET['id'] ?? '');
                         $id = ctype_digit($idRaw) ? (int) $idRaw : 0;
 
-                        // 2. Connect to DB
                         require_once 'config.php';
                         $conn = getDBConnection();
 
-                        // 3. Query specific employee by ID
+                  
                         $sql = "SELECT * FROM users WHERE id = ?";
                         $stmt = $conn->prepare($sql);
                         $stmt->bind_param("i", $id);
@@ -48,7 +47,7 @@ require_once __DIR__ . '/validate.php';
                         $result = $stmt->get_result();
 
                         
-                        // 4. Display customer data
+                   
                         if ($result->num_rows > 0) {
                             $row = $result->fetch_assoc();
                             $employeeId = (int) $row['id'];

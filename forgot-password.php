@@ -6,7 +6,7 @@ require_once 'otp_helper.php';
 $message = $_SESSION['message'] ?? '';
 $error = $_SESSION['error'] ?? '';
 
-// clear flash messages so they don't persist
+
 unset($_SESSION['message'], $_SESSION['error']);
 
 ?>

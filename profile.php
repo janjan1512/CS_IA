@@ -28,14 +28,14 @@ require_once __DIR__ . '/navbar.php';
                 
 
                     <?php
-                        // 1. Get the ID from SESSION
+               
                         $id = $_SESSION['user_id'] ?? null;
 
-                        // 2. Connect to DB
+              
                         require_once 'config.php';
                         $conn = getDBConnection();
 
-                        // 3. Query specific customer by ID
+                       
                         $sql = "SELECT * FROM users WHERE id = ?";
                         $stmt = $conn->prepare($sql);
                         $stmt->bind_param("i", $id);
@@ -43,7 +43,7 @@ require_once __DIR__ . '/navbar.php';
                         $result = $stmt->get_result();
 
                         
-                        // 4. Display customer data
+                  
                         if ($result->num_rows > 0) {
 
                             $row = $result->fetch_assoc();

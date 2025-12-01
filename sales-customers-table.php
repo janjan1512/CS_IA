@@ -102,7 +102,7 @@ require_once __DIR__ . '/navbar.php';
 
             if (!empty($customers)) {
                 foreach ($customers as $customerId) {
-                    // Now fetch customer name
+ 
                     $sql00 = "SELECT name FROM customers WHERE id = $customerId";
                     $res = $conn->query($sql00);
                     $name = ($res && $res->num_rows > 0) ? $res->fetch_assoc()['name'] : 'Unknown';

@@ -85,14 +85,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <h1>Change Details</h1>
         <div class="container-main">
             <?php
-                        // 1. Get the ID from the URL
+                        
                         $id = $_GET['id'] ?? null;
 
-                        // 2. Connect to DB
+                      
                         require_once 'config.php';
                         $conn = getDBConnection();
 
-                        // 3. Query specific customer by ID
+      
                         $sql = "SELECT * FROM orders WHERE id = ?";
                         $stmt = $conn->prepare($sql);
                         $stmt->bind_param("i", $id);
@@ -100,7 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $result = $stmt->get_result();
 
                         
-                        // 4. Display customer data
+           
                         if ($result->num_rows > 0) {
 
                             $row = $result->fetch_assoc();
